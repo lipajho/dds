@@ -35,3 +35,25 @@ unique(ATACKS$Destination.IP)
 unique(ATACKS$Destination.Port)
 unique(ATACKS$Attack.Reference)
 ATACKS$Attack.Reference <- NULL
+
+
+ggplot(TCP, aes(fill=TCP$Source.IP, y=Protocol_new, x=Category)) + geom_bar(position="stack",stat='identity')
+
+
+
+select(ATACKS,Category="Fuzzers")
+plot(compare)
+
+TCP <- ATACKS[ATACKS$Protocolos == 'tcp', ] #Seleccionar el frame de acuerto a un tipo de protocolo
+View(TCP)
+ATACKS[ATACKS$Protocolos == 'tcp',11 ]
+TCP <- ATACKS(Protocolos=="Fuzzers")
+View(TCP$Protocol_new)
+TCP$Protocol_new <- as.character(TCP$Protocolos)
+unique(TCP$Protocol_new)
+unique(TCP$Protocolos)
+unique(ATACKS$Subcategory)
+plot(TCP$Source.IP)
+
+compare_TCP <- TCP %>% group_by(Source.IP,Protocol_new) %>% summarise ( n=n())
+arrange(compare_TCP, desc(n))
