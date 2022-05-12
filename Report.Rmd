@@ -4,16 +4,18 @@ output: html_document
 date: '2022-05-16'
 ---
 
-```{r setup, include=TRUE} 
+```{r setup, include=FALSE} 
 
 ```
 
-```{r, echo=FALSE}
-#knitr::opts_chunk$set(error = TRUE)
+```{r, include=FALSE}
 library("ggplot2")
-#View(ATACKS)
-View(TCP$Protocol_new)
+#knitr::opts_chunk$set(error = TRUE)
+read.csv('D:/GIT/dds/TCP.CSV')
+ggplot(TCP, aes(fill=Source.IP, y=Protocol_new, x=Category)) + geom_bar(position="stack",stat='identity')
+
 ```
+
 ## INTRODUCCIÓN
 En un ecosistema emergente y con brechas disruptivas, el ciberespacio se hizo vulnerable por ataques cibernéticos ingresando a la OT - IT, esto nos lleva a mirar al futuro con mayor análisis y dar una visibilidad holística en cuanto se refiere a la ciberseguridad Industrial e Informática. Para ello vamos a tomar decisiones más inteligentes para las organizaciones a través de DATA SCIENCE. 
 
@@ -43,19 +45,23 @@ Analizar los tipos de ataques cibernéticos más frecuentes, procedencia y puert
 
 ## HIPÓTESIS 
 
-Identificar tipos de ataques más frecuentes
-Identificar la procedencia de los ataques por IPs
-Identificar los puertos más vulnerables 
+* Identificar tipos de ataques más frecuentes
+* Identificar la procedencia de los ataques por IPs
+* Identificar los puertos más vulnerables 
 
 ## ANÁLISIS DEL PROYECTO A INVESTIGAR
 
-### Datasets
-### Standards
-### CVE   https://cve.mitre.org/
-### ATT&CK    https://github.com/shramos/Awesome-Cybersecurity-Datasets#fraud
-### Packages  plot, dplyr, ggplot2, Knitr
+* Datasets
+* Standards
+* CVE   https://cve.mitre.org/
+* ATT&CK    https://github.com/shramos/Awesome-Cybersecurity-Datasets#fraud
+* Packages  plot, dplyr, ggplot2, Knitr
 
 ## RESULTADOS
+```{r}
+
+```
+
 library(ggplot2)
 ggplot(TCP, aes(fill=TCP$Source.IP, y=Protocol_new, x=Category)) + geom_bar(position="stack",stat='identity')
 
