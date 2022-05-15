@@ -1,17 +1,20 @@
 ---
 title: "TIPOS DE ATAQUES CIBERNÉTICOS CON IPs y PUERTOS VULNERABLES"
-output: html_document
+output:
+  html_document: default
+  pdf_document: default
 date: '2022-05-16'
 ---
 
-```{r setup, include=FALSE} 
-
-```
-
-```{r, include=FALSE}
+```{r}
+library("knitr")
+#knit2html("file")
 library("ggplot2")
+getwd()
+#library("readr")
+#library(gt)
 #knitr::opts_chunk$set(error = TRUE)
-read.csv('D:/GIT/dds/TCP.CSV')
+read.csv('TCP.CSV')
 ggplot(TCP, aes(fill=Source.IP, y=Protocol_new, x=Category)) + geom_bar(position="stack",stat='identity')
 
 ```

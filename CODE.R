@@ -60,7 +60,7 @@ write.csv2(TCP, "TCP.csv")
 
 #Graficas
 
-ggplot(TCP, aes(fill=TCP$Source.IP, y=Protocol_new, x=Category)) + geom_bar(position="stack",stat='identity')
+ggplot(TCP, aes(fill=Source.IP, y=Protocol_new, x=Category)) + geom_bar(position="stack",stat='identity')
 
 #P <- ggplot(TCP, aes(x = Category, y = Protocol_new, colour=Source.IP))
 #P <- P + geom_point(aes(shape = Source.IP))
